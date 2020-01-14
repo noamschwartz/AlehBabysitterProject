@@ -1,0 +1,67 @@
+[debug] [2020-01-06T14:47:01.386Z] ----------------------------------------------------------------------
+[debug] [2020-01-06T14:47:01.388Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\noams\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-01-06T14:47:01.388Z] CLI Version:   7.11.0
+[debug] [2020-01-06T14:47:01.388Z] Platform:      win32
+[debug] [2020-01-06T14:47:01.388Z] Node Version:  v12.13.1
+[debug] [2020-01-06T14:47:01.390Z] Time:          Mon Jan 06 2020 16:47:01 GMT+0200 (Israel Standard Time)
+[debug] [2020-01-06T14:47:01.390Z] ----------------------------------------------------------------------
+[debug] [2020-01-06T14:47:01.390Z] 
+[debug] [2020-01-06T14:47:01.398Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-06T14:47:01.399Z] > authorizing via signed-in user
+[debug] [2020-01-06T14:47:01.399Z] [iam] checking project babysitterkoda-1a3df for permissions ["firebase.projects.get"]
+[debug] [2020-01-06T14:47:01.401Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/babysitterkoda-1a3df:testIamPermissions  
+
+[debug] [2020-01-06T14:47:02.454Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-06T14:47:02.458Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/babysitterkoda-1a3df  
+ 
+[debug] [2020-01-06T14:47:02.803Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\noams\WebstormProjects\helloworld'...
+[info] 
+[debug] [2020-01-06T14:47:02.807Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/babysitterkoda-1a3df/webApps/-/config  
+ 
+[debug] [2020-01-06T14:47:03.585Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+[debug] [2020-01-06T15:47:05.442Z] ----------------------------------------------------------------------
+[debug] [2020-01-06T15:47:05.446Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\noams\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-01-06T15:47:05.446Z] CLI Version:   7.11.0
+[debug] [2020-01-06T15:47:05.446Z] Platform:      win32
+[debug] [2020-01-06T15:47:05.446Z] Node Version:  v12.13.1
+[debug] [2020-01-06T15:47:05.448Z] Time:          Mon Jan 06 2020 17:47:05 GMT+0200 (Israel Standard Time)
+[debug] [2020-01-06T15:47:05.448Z] ----------------------------------------------------------------------
+[debug] [2020-01-06T15:47:05.448Z] 
+[debug] [2020-01-06T15:47:05.462Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-06T15:47:05.463Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\noams\WebstormProjects\helloworld
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using babysitterkoda-1a3df.
+[debug] [2020-01-06T15:52:47.751Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-01-06T15:52:47.751Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-01-06T15:52:47.774Z] Error: kill ENOSYS
+    at process.kill (internal/process/per_thread.js:189:13)
+    at process.listener (C:\Users\noams\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\signal-exit\index.js:95:15)
+    at process.emit (events.js:210:5)
+[error] 
+[error] Error: An unexpected error has occurred.
