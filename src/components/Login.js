@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { loginUser } from "../actions";
+import { loginUserByGoogle } from "../actions";
 import { withStyles } from "@material-ui/styles";
 
 import Avatar from "@material-ui/core/Avatar";
@@ -11,6 +12,11 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Container from "@material-ui/core/Container";
+import { myFirebase } from "../firebase/firebase";
+
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
 
 const styles = () => ({
     "@global": {
@@ -40,8 +46,10 @@ const styles = () => ({
     }
 });
 
+const provider = new firebase.auth.GoogleAuthProvider();
 class Login extends Component {
     state = { email: "", password: "" };
+    
 
     handleEmailChange = ({ target }) => {
         this.setState({ email: target.value });
@@ -57,6 +65,11 @@ class Login extends Component {
 
         dispatch(loginUser(email, password));
     };
+
+    googleButton = () => {
+        const { dispatch } = this.props;
+        dispatch(loginUserByGoogle(provider));
+    }
 
     render() {
         const { classes, loginError, isAuthenticated } = this.props;
@@ -105,6 +118,16 @@ class Login extends Component {
                             onClick={this.handleSubmit}
                         >
                             Sign In
+                        </Button>
+                        <Button
+                            type="button"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                            onClick={this.googleButton}
+                        >
+                            Sign In with google
                         </Button>
                     </Paper>
                 </Container>

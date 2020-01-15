@@ -11,6 +11,7 @@ export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
 export const VERIFY_REQUEST = "VERIFY_REQUEST";
 export const VERIFY_SUCCESS = "VERIFY_SUCCESS";
 
+
 const requestLogin = () => {
     return {
         type: LOGIN_REQUEST
@@ -65,6 +66,21 @@ export const loginUser = (email, password) => dispatch => {
     myFirebase
         .auth()
         .signInWithEmailAndPassword(email, password)
+        .then(user => {
+            dispatch(receiveLogin(user));
+        })
+        .catch(error => {
+            //Do something with the error if you want!
+            dispatch(loginError());
+        });
+};
+
+export const loginUserByGoogle = (provider) => dispatch => {
+    dispatch(requestLogin());
+
+    myFirebase
+        .auth()
+        .signInWithPopup(provider)
         .then(user => {
             dispatch(receiveLogin(user));
         })
