@@ -29,10 +29,10 @@ class Home extends Component {
         return (
             <div>
                 <p>Babysitter</p>
-                <p><input type="text" id="first_name" onChange={this.handleChange}></input></p>
-                <p><input type="text" id="last_name" onChange={this.handleChange}></input></p>
-                <p><input type="text" id="city" onChange={this.handleChange}></input></p>
-                <p><input type="text" id="num_of_kids" onChange={this.handleChange}></input></p>
+                <p>first name: <input type="text" id="first_name" onChange={this.handleChange}></input></p>
+                <p>last name: <input type="text" id="last_name" onChange={this.handleChange}></input></p>
+                <p>city: <input type="text" id="city" onChange={this.handleChange}></input></p>
+                <p>num of kids: <input type="text" id="num_of_kids" onChange={this.handleChange}></input></p>
                 <button onClick={this.handleSaveData}>Upload Data Base</button>
                 <button onClick={this.handleLogout}>Logout</button>
                 {isLoggingOut && <p>Logging Out....</p>}
