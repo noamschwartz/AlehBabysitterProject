@@ -48,7 +48,7 @@ const styles = () => ({
 
 const provider = new firebase.auth.GoogleAuthProvider();
 class Login extends Component {
-    state = { email: "", password: "" };
+    state = { email: "", password: ""};
     
 
     handleEmailChange = ({ target }) => {

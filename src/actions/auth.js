@@ -1,4 +1,5 @@
 import { myFirebase } from "../firebase/firebase";
+import "firebase/firestore";
 
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -10,6 +11,10 @@ export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
 
 export const VERIFY_REQUEST = "VERIFY_REQUEST";
 export const VERIFY_SUCCESS = "VERIFY_SUCCESS";
+
+export const SAVE_DATA_SUCCESS = "VERIFY_SAVE_DATA"
+export const SAVE_DATA_FAILURE = "SAVE_DATA_FAILURE"
+
 
 
 const requestLogin = () => {
@@ -40,6 +45,19 @@ const requestLogout = () => {
 const receiveLogout = () => {
     return {
         type: LOGOUT_SUCCESS
+    };
+};
+
+const receiveData = () => {
+    return {
+        type: SAVE_DATA_SUCCESS
+    };
+};
+
+
+const DataError = () => {
+    return {
+        type: SAVE_DATA_FAILURE
     };
 };
 
@@ -103,6 +121,17 @@ export const logoutUser = () => dispatch => {
             dispatch(logoutError());
         });
 };
+
+export const SaveUserData = (first_name, last_name, city, num_of_kids) => dispatch => {
+    const baseDb = myFirebase.firestore();
+    var user = myFirebase.auth().currentUser
+    baseDb.collection("members").doc(user.uid).set({
+        first_name: first_name,
+        last_name: last_name,
+        city: city,
+        num_of_kids: num_of_kids})
+};
+
 
 export const verifyAuth = () => dispatch => {
     dispatch(verifyRequest());
