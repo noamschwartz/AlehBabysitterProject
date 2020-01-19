@@ -1,50 +1,57 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions";
 import { SaveUserData } from "../actions";
-
+import { Button } from 'react-bootstrap';
+import { myFirebase } from "../firebase/firebase";
+import { Route } from 'react-router';
+import { Switch } from 'react-router'; 
+import ParentHome from "./Parent/ParentHome";
+import StudentHome from "./Student/StudentHome";
 
 class Home extends Component {
-    state = { first_name: "", last_name: "", city: "", num_of_kids: ""};
-
-    handleLogout = () => {
-        const { dispatch } = this.props;
-        dispatch(logoutUser());
-    };
-
-    handleChange = (e) => {
-        this.setState({
-            [e.target.id]: e.target.value
-        })
-    }
-
-    handleSaveData = () => {
-        const { dispatch } = this.props;
-        const { first_name, last_name, city, num_of_kids } = this.state;
-        dispatch(SaveUserData(first_name, last_name, city, num_of_kids));
-    };
-
     render() {
-        const { isLoggingOut, logoutError } = this.props;
+        var p = this.props;
+        var memberEmail = myFirebase.auth().currentUser.email;
+        var db = myFirebase.firestore();
+        var ref = db.collection("members");
+        var query = ref.where("email", "==", memberEmail);
+        query.get().then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                var data = doc.data();
+                var memberType = data.type
+                if (memberType == "parent") {
+
+                    p.history.push('/parenthome');
+                } else if (memberType == "student") {
+                    p.history.push('/studenthome');
+                }    
+            });
+        })
         return (
             <div>
                 <p>Babysitter</p>
-                <p>first name: <input type="text" id="first_name" onChange={this.handleChange}></input></p>
-                <p>last name: <input type="text" id="last_name" onChange={this.handleChange}></input></p>
-                <p>city: <input type="text" id="city" onChange={this.handleChange}></input></p>
-                <p>num of kids: <input type="text" id="num_of_kids" onChange={this.handleChange}></input></p>
-                <button onClick={this.handleSaveData}>Upload Data Base</button>
-                <button onClick={this.handleLogout}>Logout</button>
-                {isLoggingOut && <p>Logging Out....</p>}
-                {logoutError && <p>Error logging out</p>}
+                <Link to="/parentsignup">
+                    <Button color="white" className="is-rounded">
+                        <span>Parent Signup</span>
+                    </Button>
+                </Link>  
+                <Link to="/studentsignup">
+                    <Button color="white" className="is-rounded">
+                        <span>Student Signup</span>
+                    </Button>
+                </Link>             
             </div>
         );
     }
 }
+
 function mapStateToProps(state) {
     return {
         isLoggingOut: state.auth.isLoggingOut,
         logoutError: state.auth.logoutError
     };
 }
+
 export default connect(mapStateToProps)(Home);

@@ -122,10 +122,12 @@ export const logoutUser = () => dispatch => {
         });
 };
 
-export const SaveUserData = (first_name, last_name, city, num_of_kids) => dispatch => {
+export const SaveUserData = (type, first_name, last_name, city, num_of_kids) => dispatch => {
     const baseDb = myFirebase.firestore();
     var user = myFirebase.auth().currentUser
     baseDb.collection("members").doc(user.uid).set({
+        email: myFirebase.auth().currentUser.email,
+        type: type,
         first_name: first_name,
         last_name: last_name,
         city: city,
