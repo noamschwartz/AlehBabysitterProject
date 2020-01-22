@@ -23,9 +23,9 @@ class Home extends Component {
                 var memberType = data.type
                 if (memberType == "parent") {
 
-                    p.history.push('/parenthome');
+                 //   p.history.push('/parenthome');
                 } else if (memberType == "student") {
-                    p.history.push('/studenthome');
+                 //   p.history.push('/studenthome');
                 }    
             });
         })
@@ -34,12 +34,12 @@ class Home extends Component {
                 <p>Babysitter</p>
                 <Link to="/parentsignup">
                     <Button color="white" className="is-rounded">
-                        <span>Parent Signup</span>
+                        <span>הרשם כהורה</span>
                     </Button>
                 </Link>  
                 <Link to="/studentsignup">
                     <Button color="white" className="is-rounded">
-                        <span>Student Signup</span>
+                        <span>הרשם כסטודנט</span>
                     </Button>
                 </Link>             
             </div>

@@ -24,6 +24,10 @@
   Related to progressive web app.
 -->
 <script>
+  function display() {
+    document.getElementById("root").style.direction = "rtl";
+  }
+  display()
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
       navigator.serviceWorker.register('worker.js').then(function(registration) {

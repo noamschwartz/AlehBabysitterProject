@@ -121,8 +121,10 @@ export const logoutUser = () => dispatch => {
             dispatch(logoutError());
         });
 };
-
-export const SaveUserData = (type, first_name, last_name, city, num_of_kids) => dispatch => {
+export const SaveStudentData = (type,  first_name, last_name, city, address, birth_date, stud_gender,
+    work_preference, min_kid_age, is_all_kids, is_kid_spectrum, is_kid_mentali_ill, is_kid_delayed_develop,
+    is_kid_fisicali_ill, is_kid_behavural_diffeculty, more_difficulties, nursing_assistance, 
+    medical_assistance, stud_comments)=> dispatch=> {
     const baseDb = myFirebase.firestore();
     var user = myFirebase.auth().currentUser
     baseDb.collection("members").doc(user.uid).set({
@@ -131,7 +133,48 @@ export const SaveUserData = (type, first_name, last_name, city, num_of_kids) => 
         first_name: first_name,
         last_name: last_name,
         city: city,
-        num_of_kids: num_of_kids})
+        address: address,
+        birth_date: birth_date,
+        stud_gender: stud_gender,
+        work_preference: work_preference, 
+        min_kid_age: min_kid_age,
+        is_all_kids: is_all_kids,
+        is_kid_spectrum: is_kid_spectrum,
+        is_kid_mentali_ill: is_kid_mentali_ill,
+        is_kid_delayed_develop: is_kid_delayed_develop,
+        is_kid_fisicali_ill: is_kid_fisicali_ill,
+        is_kid_behavural_diffeculty: is_kid_behavural_diffeculty,
+        more_difficulties: more_difficulties,
+        nursing_assistance: nursing_assistance,
+        medical_assistance: medical_assistance,
+        stud_comments: stud_comments
+    })
+};
+
+export const SaveParentData = (type, first_name, last_name, city, address, num_of_kids, age_of_kid, 
+    gender_of_kid, is_kid_spectrum, is_kid_mentali_ill, is_kid_delayed_develop, is_kid_fisical_ill,
+     is_kid_behavural_diffeculty, nursing_assistance, medical_assistance, babysiter_att) => dispatch => {
+    const baseDb = myFirebase.firestore();
+    var user = myFirebase.auth().currentUser
+    baseDb.collection("members").doc(user.uid).set({
+        email: myFirebase.auth().currentUser.email,
+        type: type,
+        first_name: first_name,
+        last_name: last_name,
+        city: city,
+        address: address,
+        num_of_kids: num_of_kids,
+        age_of_kid: age_of_kid, 
+        gender_of_kid: gender_of_kid, 
+        is_kid_spectrum: is_kid_spectrum,
+        is_kid_mentali_ill: is_kid_mentali_ill,
+        is_kid_delayed_develop: is_kid_delayed_develop,
+        is_kid_fisical_ill: is_kid_fisical_ill,
+        is_kid_behavural_diffeculty: is_kid_behavural_diffeculty,
+        nursing_assistance: nursing_assistance,
+        medical_assistance: medical_assistance, 
+        babysiter_att: babysiter_att
+    })
 };
 
 
