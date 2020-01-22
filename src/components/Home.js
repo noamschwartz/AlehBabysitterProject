@@ -23,9 +23,9 @@ class Home extends Component {
                 var memberType = data.type
                 if (memberType == "parent") {
 
-                 //   p.history.push('/parenthome');
+                    p.history.push('/parenthome');
                 } else if (memberType == "student") {
-                 //   p.history.push('/studenthome');
+                    p.history.push('/studenthome');
                 }    
             });
         })
