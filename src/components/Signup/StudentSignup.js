@@ -4,7 +4,6 @@ import { Redirect } from "react-router"
 import { Switch } from "react-router"
 import { logoutUser } from "../../actions";
 import { SaveStudentData } from "../../actions";
-import $ from 'jquery'; 
 
 class StudentSignup extends Component {
     state = { first_name: "", last_name: "", city: "",address:"", birth_date:"", stud_gender:"",
