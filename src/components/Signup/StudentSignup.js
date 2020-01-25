@@ -36,6 +36,7 @@ class StudentSignup extends Component {
         this.props.history.push('/studenthome');
     };
 
+
     render() {
         const { isLoggingOut, logoutError } = this.props;
         return (
@@ -118,6 +119,7 @@ function mapStateToProps(state) {
         logoutError: state.auth.logoutError
     };
 }
+
 
 
 
